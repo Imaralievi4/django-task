@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+    <form action="{{ list.get_delete_url }}" method="POST">
+        {% csrf_token %}
+
+        <h3 style="color:#f7f7f7;">Are you sure you want to delete <b>{{ list.title|title }}</b> post?</h3>
+        <a href="{% url 'home' %}" class="btn btn-info">Cancel</a>
+        <button type="submit" name="button" class="btn btn-danger">Delete</button>
+    </form>
+{% endblock %}
